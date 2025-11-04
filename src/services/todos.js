@@ -33,7 +33,7 @@ async function applyQuery(myTodos,query){
     }
     // pagination
     const page = Math.max(1,parseInt(query.page??'1',10))
-    const limit = Math.max(1,Math.max(100,parseInt(query.limit ?? '10',10)))
+    const limit = Math.max(1,Math.min(100,parseInt(query.limit ?? '10',10)))
     const start = (page-1)*limit
     const items = out.slice(start,start+limit)
 
